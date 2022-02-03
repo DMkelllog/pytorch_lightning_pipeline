@@ -21,11 +21,12 @@ import tensorboard
 ##################
 learning_rate = 1e-3
 batch_size = 64
-epochs = 10
+epochs = 100
 num_tta = 5
 progress_bar = False
 checkpoint_verbose = False
 earlystopping_verbose = False
+
 ##################
 
 augmentation = T.Compose([T.ToTensor(),
@@ -70,7 +71,7 @@ checkpoint_callback = ModelCheckpoint('models', save_top_k=1, monitor='val_loss'
 
 architecture = resnet18(pretrained=True)
 model = LitModel(architecture, learning_rate)
-trainer = Trainer(max_epochs=100, 
+trainer = Trainer(max_epochs=epochs, 
                 gpus=1,
                 enable_progress_bar=progress_bar,
                 logger=logger, 
