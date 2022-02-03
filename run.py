@@ -22,11 +22,10 @@ import tensorboard
 learning_rate = 1e-3
 batch_size = 64
 epochs = 100
-num_tta = 5
+num_tta = 10
 progress_bar = False
 checkpoint_verbose = False
 earlystopping_verbose = False
-
 ##################
 
 augmentation = T.Compose([T.ToTensor(),
